@@ -8,7 +8,5 @@ namespace Nemo.Common.Events
         {
 
         }
-
-        public Guid ItemId { get; set; }
     }
 }
