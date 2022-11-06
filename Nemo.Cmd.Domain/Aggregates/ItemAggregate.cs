@@ -63,7 +63,7 @@ namespace Nemo.Cmd.Domain.Aggregates
             _id = @event.Id;
         }
 
-        public void DeleteItem(DeleteItemEvent @event)
+        public void DeleteItem(Guid id)
         {
             if (!_isActive)
             {
@@ -72,7 +72,7 @@ namespace Nemo.Cmd.Domain.Aggregates
 
             RaiseEvent(new DeleteItemEvent
             {
-                Id = @event.Id
+                Id = id
             });
         }
 

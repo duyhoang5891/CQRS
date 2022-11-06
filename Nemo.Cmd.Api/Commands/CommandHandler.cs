@@ -31,7 +31,7 @@ namespace Nemo.Cmd.Api.Commands
         {
             var aggregate = await _eventSourcingHandler.GetByIdAsync(command.Id);
 
-            aggregate.DeleteItem(command);
+            aggregate.DeleteItem(command.ItemId);
         }
     }
 }

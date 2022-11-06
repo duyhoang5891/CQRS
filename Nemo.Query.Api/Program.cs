@@ -1,6 +1,16 @@
+using Microsoft.EntityFrameworkCore;
+using Nemo.Query.Infratructure.DataAccess;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
+Action<DbContextOptionsBuilder> configureDbContext = (o => o.UseLazyLoadingProxies().UseSqlServer(builder.Configuration.GetConnectionString(nameof(NemoDbContext))));
+builder.Services.AddDbContext<NemoDbContext>(configureDbContext);
+builder.Services.AddSingleton<NemoDbContextFactory>(new NemoDbContextFactory(configureDbContext));
+
+//Create database and table from code
+var dataContext = builder.Services.BuildServiceProvider().GetRequiredService<NemoDbContext>();
+await dataContext.Database.EnsureCreatedAsync();
 
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
