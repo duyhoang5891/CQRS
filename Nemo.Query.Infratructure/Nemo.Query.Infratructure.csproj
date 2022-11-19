@@ -18,11 +18,13 @@
     <None Remove="Microsoft.EntityFrameworkCore.Proxies" />
     <None Remove="Repositories\" />
     <None Remove="Handlers\" />
+    <None Remove="Coverters\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="DataAccess\" />
     <Folder Include="Repositories\" />
     <Folder Include="Handlers\" />
+    <Folder Include="Coverters\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Nemo.Query.Domain\Nemo.Query.Domain.csproj" />
