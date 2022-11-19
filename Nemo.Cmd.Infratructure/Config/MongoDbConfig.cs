@@ -1,5 +1,4 @@
-﻿using System;
-namespace Nemo.Cmd.Infratructure.Config
+﻿namespace Nemo.Cmd.Infratructure.Config
 {
     public class MongoDbConfig
     {

@@ -1,5 +1,4 @@
-﻿using System;
-namespace Nemo.Cmd.Api.Commands
+﻿namespace Nemo.Cmd.Api.Commands
 {
     public interface ICommandHandler
     {

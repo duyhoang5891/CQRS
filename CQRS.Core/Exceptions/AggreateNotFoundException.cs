@@ -1,5 +1,4 @@
-﻿using System;
-namespace CQRS.Core.Exceptions
+﻿namespace CQRS.Core.Exceptions
 {
     public class AggreateNotFoundException : Exception
     {

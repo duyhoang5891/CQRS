@@ -1,10 +1,9 @@
-﻿using System;
-using CQRS.Core.Domain;
+﻿using CQRS.Core.Domain;
 using Nemo.Common.Events;
 
 namespace Nemo.Cmd.Domain.Aggregates
 {
-    public class ItemAggregate: AggregateRoot
+    public class ItemAggregate : AggregateRoot
     {
         private bool _isActive;
         private string _name;

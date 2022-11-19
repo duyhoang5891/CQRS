@@ -1,11 +1,10 @@
-﻿using System;
-using System.Data;
-using CQRS.Core.Domain;
+﻿using CQRS.Core.Domain;
 using CQRS.Core.Events;
 using CQRS.Core.Exceptions;
 using CQRS.Core.Infrastructure;
 using CQRS.Core.Producers;
 using Nemo.Cmd.Domain.Aggregates;
+using System.Data;
 
 namespace Nemo.Cmd.Infratructure.Stores
 {
@@ -44,7 +43,7 @@ namespace Nemo.Cmd.Infratructure.Stores
 
             var version = expectedVersion;
 
-            foreach(var @event in events)
+            foreach (var @event in events)
             {
                 version++;
                 @event.Version = version;

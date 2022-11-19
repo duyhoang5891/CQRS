@@ -1,5 +1,4 @@
-﻿using System;
-using CQRS.Core.Domain;
+﻿using CQRS.Core.Domain;
 using CQRS.Core.Handlers;
 using CQRS.Core.Infrastructure;
 using Nemo.Cmd.Domain.Aggregates;
@@ -21,7 +20,7 @@ namespace Nemo.Cmd.Infratructure.Handlers
 
             var events = await _eventStore.GetEventsAsync(aggregateId);
 
-            if(events == null || !events.Any())
+            if (events == null || !events.Any())
             {
                 return aggragate;
             }

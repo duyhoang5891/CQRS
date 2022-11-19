@@ -7,10 +7,13 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <None Remove="Arggregates\" />
+    <Compile Remove="Arggregates\**" />
+    <EmbeddedResource Remove="Arggregates\**" />
+    <None Remove="Arggregates\**" />
   </ItemGroup>
+
   <ItemGroup>
-    <Folder Include="Arggregates\" />
+    <None Remove="Arggregates\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\CQRS.Core\CQRS.Core.csproj" />

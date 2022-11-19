@@ -1,5 +1,4 @@
-﻿using System;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
 using Nemo.Query.Domain.Entities;
 
 namespace Nemo.Query.Infratructure.DataAccess

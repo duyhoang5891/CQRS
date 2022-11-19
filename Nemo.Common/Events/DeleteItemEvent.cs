@@ -2,9 +2,9 @@
 
 namespace Nemo.Common.Events
 {
-    public class DeleteItemEvent:BaseEvent
+    public class DeleteItemEvent : BaseEvent
     {
-        public DeleteItemEvent(): base(nameof(DeleteItemEvent))
+        public DeleteItemEvent() : base(nameof(DeleteItemEvent))
         {
 
         }

@@ -1,5 +1,4 @@
-﻿using System;
-using Nemo.Common.Events;
+﻿using Nemo.Common.Events;
 
 namespace Nemo.Query.Infratructure.Handlers
 {

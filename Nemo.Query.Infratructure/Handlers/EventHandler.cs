@@ -1,5 +1,4 @@
-﻿using System;
-using Nemo.Common.Events;
+﻿using Nemo.Common.Events;
 using Nemo.Query.Domain.Entities;
 using Nemo.Query.Domain.Repositories;
 

@@ -1,12 +1,11 @@
-﻿using System;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
 using Nemo.Query.Domain.Entities;
 using Nemo.Query.Domain.Repositories;
 using Nemo.Query.Infratructure.DataAccess;
 
 namespace Nemo.Query.Infratructure.Repositories
 {
-    public class ItemRepository: IItemRepository
+    public class ItemRepository : IItemRepository
     {
         private readonly NemoDbContextFactory _contextFactory;
 
@@ -38,7 +37,7 @@ namespace Nemo.Query.Infratructure.Repositories
             }
         }
 
-        public async Task<Item> GetByIdAsync(Guid itemId)
+        public async Task<Item?> GetByIdAsync(Guid itemId)
         {
             using NemoDbContext dbContext = _contextFactory.CreateDbContext();
 
@@ -65,7 +64,7 @@ namespace Nemo.Query.Infratructure.Repositories
 
             var result = await dbContext.Items.Where(x => x.ItemId == item.ItemId).FirstOrDefaultAsync();
 
-            if(result != null)
+            if (result != null)
             {
                 result.Name = item.Name;
                 result.Description = item.Description;

@@ -1,5 +1,4 @@
-﻿using System;
-using CQRS.Core.Handlers;
+﻿using CQRS.Core.Handlers;
 using Nemo.Cmd.Domain.Aggregates;
 
 namespace Nemo.Cmd.Api.Commands

@@ -1,5 +1,4 @@
-﻿using System;
-using CQRS.Core.Domain;
+﻿using CQRS.Core.Domain;
 using CQRS.Core.Events;
 using Microsoft.Extensions.Options;
 using MongoDB.Driver;

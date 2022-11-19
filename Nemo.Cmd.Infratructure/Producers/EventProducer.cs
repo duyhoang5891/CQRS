@@ -1,9 +1,8 @@
-﻿using System;
-using System.Text.Json;
-using Confluent.Kafka;
+﻿using Confluent.Kafka;
 using CQRS.Core.Events;
 using CQRS.Core.Producers;
 using Microsoft.Extensions.Options;
+using System.Text.Json;
 
 namespace Nemo.Cmd.Infratructure.Producers
 {
