@@ -1,9 +1,13 @@
 using Confluent.Kafka;
 using CQRS.Core.Domain;
+using CQRS.Core.Infrastructure;
 using Microsoft.EntityFrameworkCore;
+using Nemo.Query.Api.Queries;
+using Nemo.Query.Domain.Entities;
 using Nemo.Query.Domain.Repositories;
 using Nemo.Query.Infratructure.Consumers;
 using Nemo.Query.Infratructure.DataAccess;
+using Nemo.Query.Infratructure.Dispatchers;
 using Nemo.Query.Infratructure.Handlers;
 using Nemo.Query.Infratructure.Repositories;
 using EventHandler = Nemo.Query.Infratructure.Handlers.EventHandler;
@@ -16,13 +20,19 @@ builder.Services.AddDbContext<NemoDbContext>(configureDbContext);
 builder.Services.AddSingleton<NemoDbContextFactory>(new NemoDbContextFactory(configureDbContext));
 
 //Create database and table from code
-//var dataContext = builder.Services.BuildServiceProvider().GetRequiredService<NemoDbContext>();
-//await dataContext.Database.EnsureCreatedAsync();
+var dataContext = builder.Services.BuildServiceProvider().GetRequiredService<NemoDbContext>();
+await dataContext.Database.EnsureCreatedAsync();
 
 builder.Services.AddScoped<IItemRepository, ItemRepository>();
 builder.Services.AddScoped<IEventHandler, EventHandler>();
 builder.Services.Configure<ConsumerConfig>(config.GetSection(nameof(ConsumerConfig)));
 builder.Services.AddScoped<IEventConsumer, EventConsumer>();
+builder.Services.AddScoped<IQueryHandler, QueryHandler>();
+
+var queryHandler = builder.Services.BuildServiceProvider().GetRequiredService<IQueryHandler>();
+var dispatcher = new QueryDispatcher();
+dispatcher.RegisterHandler<FindAllItemQuery>(queryHandler.HandlerAsync);
+builder.Services.AddSingleton<IQueryDispatcher<Item>,QueryDispatcher>(_ => dispatcher);
 
 builder.Services.AddControllers();
 builder.Services.AddHostedService<ConsumerHostedService>();

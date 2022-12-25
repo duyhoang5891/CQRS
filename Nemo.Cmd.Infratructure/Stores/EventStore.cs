@@ -62,6 +62,10 @@ namespace Nemo.Cmd.Infratructure.Stores
 
                 await _eventStoreRepository.SaveAsync(eventModel);
 
+                var eventStoreResult = await _eventStoreRepository.FindByAggregateId(aggregateId);
+
+                @event.EventStoreId = eventStoreResult.Select(x => x.Id).FirstOrDefault();
+
                 //var topic = Environment.GetEnvironmentVariable("KAFKA_TOPIC");
 
                 var topic = "NemoEvents";

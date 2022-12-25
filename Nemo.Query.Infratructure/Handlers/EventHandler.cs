@@ -20,7 +20,8 @@ namespace Nemo.Query.Infratructure.Handlers
                 ItemId = @event.Id,
                 Name = @event.Name,
                 Description = @event.Description,
-                Created = @event.Created
+                Created = @event.Created,
+                EventStoreId = @event.EventStoreId
             };
 
             await _itemRepository.CreateAsync(item);

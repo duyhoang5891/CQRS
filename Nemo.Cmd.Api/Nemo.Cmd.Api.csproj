@@ -14,6 +14,7 @@
     <ProjectReference Include="..\CQRS.Core\CQRS.Core.csproj" />
     <ProjectReference Include="..\Nemo.Cmd.Domain\Nemo.Cmd.Domain.csproj" />
     <ProjectReference Include="..\Nemo.Cmd.Infratructure\Nemo.Cmd.Infratructure.csproj" />
+    <ProjectReference Include="..\Nemo.Query.Domain\Nemo.Query.Domain.csproj" />
   </ItemGroup>
 
 </Project>
